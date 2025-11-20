@@ -8,7 +8,7 @@ export default function DashboardPage({ user }: { user: User | null }) {
     <div className="dashboard-layout">
       <Sidebar />
       <div className="dashboard-main">
-        <Header pageName="Dashboard" userName={user?.displayName ?? 'Volunteer User'} photoURL={user?.photoURL ?? undefined} />
+        <Header pageName="Dashboard" photoURL={user?.photoURL ?? undefined} userName={user?.displayName ?? 'Volunteer User'}  />
         <section className="dashboard-body">
           <div className="dashboard-content">
             Dashboard content coming soon.

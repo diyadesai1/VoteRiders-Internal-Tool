@@ -13,3 +13,12 @@
   font-weight: 600;
   color: #0f172a;
 }
+
+.header-profile-wrapper { position: relative; display: flex; align-items: center; }
+.profile-trigger { background: none; padding: 0; border: none; cursor: pointer; display: inline-flex; }
+.profile-trigger:focus-visible { outline: 2px solid #0f172a; outline-offset: 4px; border-radius: 6px; }
+.profile-caret { margin-left: .4rem; font-size: .85rem; transition: transform .25s ease; display: inline-block; }
+.profile-caret--open { transform: rotate(180deg); }
+.profile-menu { position: absolute; top: 100%; right: 0; margin-top: .5rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: .5rem; box-shadow: 0 12px 32px rgba(15,23,42,.15); min-width: 160px; display: flex; flex-direction: column; gap: .25rem; z-index: 20; }
+.profile-menu__item { background: none; border: none; text-align: left; padding: .6rem .75rem; border-radius: 10px; font-size: .9rem; cursor: pointer; font-weight: 500; }
+.profile-menu__item:hover { background: #f1f5f9; }

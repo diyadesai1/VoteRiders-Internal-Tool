@@ -16,13 +16,14 @@ export function Profile({ name, role = "Volunteer", photoURL }: ProfileProps) {
 
   return (
     <div className="profile">
+      
+      <span className="profile__avatar" aria-hidden>
+        {photoURL ? <img src={photoURL} alt={name} className="profile__avatar-img" /> : (initials || "V")}
+      </span>
       <div className="profile__meta">
         <span className="profile__name">{name}</span>
         <span className="profile__role">{role}</span>
       </div>
-      <span className="profile__avatar" aria-hidden>
-        {photoURL ? <img src={photoURL} alt={name} className="profile__avatar-img" /> : (initials || "V")}
-      </span>
     </div>
   );
 }
