@@ -148,6 +148,22 @@
   justify-content: center;
 }
 
+.login-button--google {
+  background-color: #ffffff;
+  color: #111;
+  border: 1px solid #dcdfe4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.login-button--google:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.login-button--google:disabled {
+  opacity: .6;
+  cursor: progress;
+}
+
 .login-contact {
   font-size: 0.9rem;
   color: #6b6b6b;
@@ -157,6 +173,13 @@
 .login-contact a {
   color: inherit;
   font-weight: 600;
+}
+
+.login-error {
+  margin: .5rem 0 0;
+  color: #b91c1c;
+  font-size: .85rem;
+  text-align: center;
 }
 
 .login-footer {

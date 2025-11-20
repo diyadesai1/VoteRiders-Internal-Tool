@@ -1,10 +1,14 @@
 import "./login.css";
 import { useEffect, useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { signInWithGoogle } from '../firebase'
 
 export default function Login({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate()
   const [visible, setVisible] = useState(false)
+  const [googleLoading, setGoogleLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
   useEffect(() => {
     const r = requestAnimationFrame(() => setVisible(true))
     return () => cancelAnimationFrame(r)
@@ -15,6 +19,20 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
     // TODO: validate credentials, then redirect
     onLogin()
     navigate('/dashboard')
+  }
+
+  const handleGoogle = async () => {
+    setError(null)
+    setGoogleLoading(true)
+    try {
+      await signInWithGoogle()
+      onLogin()
+      navigate('/dashboard')
+    } catch (err) {
+      setError((err as Error).message)
+    } finally {
+      setGoogleLoading(false)
+    }
   }
 
   return (
@@ -71,6 +89,11 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
             Sign In
           </button>
         </form>
+
+        <button type="button" className="login-button login-button--google" onClick={handleGoogle} disabled={googleLoading}>
+          {googleLoading ? 'Signing in with Google...' : 'Sign in with Google'}
+        </button>
+        {error && <p className="login-error" role="alert">{error}</p>}
 
         <p className="login-contact">
           Need help? Contact <a href="mailto:support@voteriders.org">info@voteriders.org</a>
