@@ -1,3 +1,5 @@
+import './profile.css'
+
 interface ProfileProps {
   name: string;
   role?: string;
@@ -13,13 +15,14 @@ export function Profile({ name, role = "Volunteer" }: ProfileProps) {
 
   return (
     <div className="profile">
-      <span className="profile__avatar" aria-hidden>
+        <span className="profile__avatar" aria-hidden>
         {initials || "V"}
       </span>
       <div className="profile__meta">
         <span className="profile__name">{name}</span>
         <span className="profile__role">{role}</span>
       </div>
+      
     </div>
   );
 }

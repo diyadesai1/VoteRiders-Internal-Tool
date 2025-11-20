@@ -1,0 +1,15 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1.75rem 3rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dashboard-header__page {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0f172a;
+}

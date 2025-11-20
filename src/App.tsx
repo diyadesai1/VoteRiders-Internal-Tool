@@ -4,8 +4,21 @@ import Splash from './pages/splash'
 import Login from './pages/login'
 import DashboardPage from './pages/dashboard'
 
+function AppContent() {
+  return (
+    <>
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+    </>
+  )
+}
+
 function App() {
   const [showSplash, setShowSplash] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
     const timer = setTimeout(() => setShowSplash(false), 4500)
     return () => clearTimeout(timer)
@@ -15,12 +28,10 @@ function App() {
     <BrowserRouter>
       {showSplash ? (
         <Splash />
+      ) : !isLoggedIn ? (
+        <Login onLogin={() => setIsLoggedIn(true)} />
       ) : (
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <AppContent />
       )}
     </BrowserRouter>
   )

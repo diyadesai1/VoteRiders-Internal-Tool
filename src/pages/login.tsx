@@ -1,8 +1,8 @@
 import "./login.css";
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function LoginPage() {
+export default function Login({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate()
   const [visible, setVisible] = useState(false)
   useEffect(() => {
@@ -10,9 +10,10 @@ export default function LoginPage() {
     return () => cancelAnimationFrame(r)
   }, [])
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // TODO: validate credentials, then redirect
+    onLogin()
     navigate('/dashboard')
   }
 

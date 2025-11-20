@@ -1,4 +1,4 @@
-import "../styles/dashboard.css";
+import './dashboard.css';
 import { Header } from "../components/header";
 import { Sidebar } from "../components/sidebar";
 
@@ -7,11 +7,12 @@ export default function DashboardPage() {
     <div className="dashboard-layout">
       <Sidebar />
       <div className="dashboard-main">
-        <Header pageName="Dashboard" />
-
-        <div className="dashboard-content">
-          Dashboard content coming soon.
-        </div>
+        <Header pageName="Dashboard" userName="Volunteer User" />
+        <section className="dashboard-body">
+          <div className="dashboard-content">
+            Dashboard content coming soon.
+          </div>
+        </section>
       </div>
     </div>
   );

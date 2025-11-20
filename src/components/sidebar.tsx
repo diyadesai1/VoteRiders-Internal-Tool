@@ -1,3 +1,5 @@
+import './sidebar.css'
+
 const mainLinks = [
   { label: "Dashboard", icon: "🏠", active: true },
   { label: "Important Links", icon: "🔗" },

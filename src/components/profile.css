@@ -1,0 +1,30 @@
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.profile__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #050607;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.profile__meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.profile__name { font-weight: 600; }
+.profile__role { font-size: 0.85rem; color: #6b7280; }
